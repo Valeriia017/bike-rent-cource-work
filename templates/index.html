@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static product_loader %}
+{% block title %}HOME - Bike Rent{% endblock title %}
+{% block content %}
+    <section class="second-header" style="background-image: url('{% static 'assets/img/bg.jpg' %}')">
+        <div class="second-header__inner">
+            <h1 class="second-header__title">
+                Оренда байків у Дніпрі
+            </h1>
+        </div>
+    </section>
+    <section class="slogan container">
+        <h2 class="slogan__title">
+            Разом для зеленішого та чистішого світу!
+        </h2>
+    </section>
+    <section id="products" class="bikes container">
+        <div class="bikes__inner">
+            {% get_active_products as products %}
+            {% if products %}
+            <div class="bikes__list">
+                {% for product in products %}
+                <div class="bike">
+                    <a href="/products/{{ product.id }}/" class="bike__link">
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}" height="230px">
+                    </a>
+                    <div class="bike__info">
+                        <h3 class="bike__title">
+                        {{ product.name }}
+                        </h3>
+                        <p class="bike__price">
+                            Від {{ product.price }} Грн.
+                        </p>
+
+                        <a href="/products/{{ product.id }}/" class="bike__btn">
+                            ЗАБРОНЮВАТИ БАЙК
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+                <div class="bikes__line">
+
+                </div>
+            {% endif %}
+        </div>
+    </section>
+    <section id="location" class="location container">
+        <div class="location__inner">
+            <div class="location__left">
+                <h2 class="location__title">
+                    Місце отримання байку
+                </h2>
+                <div class="location__info">
+                    <div class="location__info-item address">
+                        <strong>Адреса:</strong> Головний вхід Парку ім. Т.Г Шевченка
+                    </div>
+                    <div class="location__info-item phone">
+                        <strong>Телефон:</strong> <a href="tel:+380 980 578 633">+380 980 578 633</a>
+                    </div>
+                    <div class="location__info-item email">
+                        <strong>Електронна пошта:</strong> <a href="mailto:rent@rentebike.bg">bikerent@gmail.com</a>
+                    </div>
+                    <div class="location__info-item work_plan">
+                        <strong>Графік роботи:</strong><br>
+                        понеділок - п'ятниця: 10:00 - 19:00,<br>
+                        субота та неділя: 09:00 - 19:00
+                    </div>
+                </div>
+
+            </div>
+            <div class="location__right">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1870.8587687071547!2d35.06806470844145!3d48.460484913882254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3cdefb2ac57%3A0x1a01d15191dd2f45!2z0JPQvtC70L7QstC90LjQuSDQstGF0ZbQtCDQn9Cw0YDQutGDINGW0LwuINCiLtCTINCo0LXQstGH0LXQvdC60LA!5e0!3m2!1sru!2sbg!4v1716425841801!5m2!1sru!2sbg" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

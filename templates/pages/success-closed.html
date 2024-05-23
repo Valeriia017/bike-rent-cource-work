@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Order success - Bike Rent{% endblock title %}
+{% block content %}
+    <style>
+        .finish {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+        p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        strong {
+            font-weight: bold;
+        }
+    </style>
+    <section class="finish">
+    <h1>Дякуємо за те що скористались нашим сервісом</h1>
+    <p style="text-align: center">Ваше замовлення було успісно закрите</p>
+    </section>
+{% endblock content %}

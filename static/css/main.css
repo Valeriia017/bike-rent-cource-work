@@ -1,0 +1,323 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.header {
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+.header__inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__nav{
+    display: flex;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    position: relative;
+}
+
+.link::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: green;
+    position: absolute;
+    border-radius: 50px;
+    top: 24px;
+    opacity: 0;
+    transition: 0.2s ease-out all;
+    touch-action: none;
+}
+
+.link:hover::after {
+    top: 32px;
+    opacity: 1;
+}
+
+.language {
+    padding-top: 32px;
+}
+
+.second-header {
+    height: calc(100vh - 96px);
+    background-position: center;
+    background-size: cover;
+}
+
+.second-header__inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.3);
+    height: 100%;
+}
+
+.second-header__title{
+    color: #fff;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.slogan {
+    padding: 86px 36px;
+}
+
+.slogan__title{
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.bikes__inner {
+    padding: 31px 0;
+}
+
+.bikes__list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    margin-bottom: 64px;
+}
+
+.bike {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 350px;
+    width: 100%;
+}
+
+.bike__info{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.bike__title {
+    font-size: 16px;
+    margin: 0;
+}
+
+.bike__price{
+    color: green;
+    margin: 0;
+}
+
+.bike__btn{
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+    padding: 8px 16px;
+    background-color: #f59b20;
+    text-align: center;
+    transition: 0.3s ease-out background-color;
+}
+
+.bike__btn:hover{
+    background-color: #d5871a;
+}
+
+.bikes__line{
+    width: 100%;
+    height: 4px;
+    background-color: #f59b20;
+    margin: 31px 0;
+}
+
+.location {
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.location__inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.location__title{
+    font-size: 28px;
+    text-align: center;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.location__info{
+    padding-top: 32px;
+}
+
+.location__left{
+    flex: 1;
+}
+
+.location__right{
+    flex: 1;
+}
+
+.location__info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.work_plan{
+    margin-top: 16px;
+}
+
+.footer{
+    background-color: #232323;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__inner {
+    padding: 64px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__block-title {
+    color: #fff;
+    margin-bottom: 16px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.footer__block-items{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer__block-item{
+    color: #fff;
+    font-weight: 300;
+}
+
+a.footer__block-item{
+    color: #f5f5f5;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.footer__block-item > a {
+    color: #fff;
+}
+.footer__sub-title{
+    background-color: #1e1e1e;
+    color: #f5f5f5;
+    padding: 32px 16px;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.product{
+    margin-top: 32px;
+}
+
+.product__top{
+    display: flex;
+    flex-direction: row;
+}
+
+.product__left{
+    width: 50%;
+    padding: 0 32px;
+    flex: 1;
+}
+
+.product__left > img{
+    width: 100%;
+}
+
+.product__right{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 32px;
+    flex: 0;
+}
+
+.product__price {
+    margin-bottom: 12px;
+}
+
+.product__bottom {
+    margin-top: 64px;
+    padding: 0 32px;
+}
+
+.form__element {
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    gap: 8px;
+}
+
+.form__element > [aria-invalid="true"] {
+    border: 1px solid red;
+}
+
+select, input {
+    padding: 16px 32px;
+    border: none;
+}
+
+.btn {
+    max-width: 300px;
+    width: 100%;
+    padding: 16px 8px;
+    color: white;
+    background-color: #f59b20;
+    border: none;
+}
+
+.form__errors {
+    margin-top: 16px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.error-message {
+    margin-top: 8px;
+    color: red;
+    font-size: 16px;
+    font-weight: 400;
+}

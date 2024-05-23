@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}{{ product.name }} - Bike Rent{% endblock title %}
+{% block content %}
+    <section class="product container">
+        <div class="product__inner">
+            <div class="product__top">
+                <div class="product__left">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+                <div class="product__right">
+                    <div class="product__info">
+                        <h1 class="product__title">{{ product.name }}</h1>
+                        <div class="product__price">
+                            Від {{ product.price }} Грн.
+                        </div>
+                    </div>
+                    <form method="post" class="product__form form">
+                        {% csrf_token %}
+                        <div class="form__element">
+                            {{ form.full_name.label_tag }}
+                            {{ form.full_name }}
+                        </div>
+                        <div class="form__element">
+                            {{ form.email.label_tag }}
+                            {{ form.email }}
+                        </div>
+                        <div class="form__element">
+                            {{ form.phone.label_tag }}
+                            {{ form.phone }}
+                        </div>
+                        <div class="form__element" style="display: none">
+                            {{ form.product.label_tag }}
+                            {{ form.product }}
+                        </div>
+                        <div class="form__element">
+                            {{ form.enter_place.label_tag }}
+                            {{ form.enter_place }}
+                        </div>
+                        <div class="form__element">
+                            {{ form.outer_place.label_tag }}
+                            {{ form.outer_place }}
+                        </div>
+                        <div class="form__element">
+                            {{ form.ender_time.label_tag }}
+                            {{ form.ender_time }}
+                        </div>
+                        <div class="form__element">
+                            {{ form.outer_time.label_tag }}
+                            {{ form.outer_time }}
+                        </div>
+                        <button class="btn " type="submit">Замовити</button>
+                        {% if form.errors %}
+                            <div class="form__errors">
+
+                                    {% for field in form %}
+                                        {% for error in field.errors %}
+                                            <div class="error-message">{{ error }}</div>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    {% for error in form.non_field_errors %}
+                                        <div class="error-message">{{ error }}</div>
+                                    {% endfor %}
+                            </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+            <div class="product__bottom">
+                <h2 class="product__bottom-title">Опис</h2>
+                <div class="product__bottom-info">
+                    {{ product.description | safe }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
